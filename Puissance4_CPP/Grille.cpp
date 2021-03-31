@@ -29,7 +29,7 @@
                 if(i!=_nombreColonnes-1)  std::cout << " | ";
             }
             std::cout << std::endl;
-            if(j!=_nombreLignes-1)  std::cout << " ------- " << std::endl;
+            if(j!=_nombreLignes-1)  std::cout << " --------------------- " << std::endl;
         }
     }
 

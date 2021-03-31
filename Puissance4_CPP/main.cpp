@@ -7,22 +7,22 @@
 int main(){
 
     bool partiegagnee = false;
-    Tictactoe jeu = Tictactoe();
+    Puissance4 jeu = Puissance4();
     int numeroCase;
 
-    Grille maGrilleDeTest = Grille(7,6);
-    maGrilleDeTest.affiche();
+    //Grille maGrilleDeTest = Grille(7,6);
+    //maGrilleDeTest.affiche();
 
-/*
+
     while(!partiegagnee && !jeu.testeJeuNul()){
         
         jeu.afficheGrille();
         std::cin >> numeroCase;
-        jeu.ajouteSymbole(numeroCase%3,numeroCase/3);
+        jeu.ajouteSymbole(numeroCase);
         partiegagnee = jeu.testeVictoireDiagonale() || jeu.testeVictoireHorizontale() || jeu.testeVictoireVerticale();
         jeu.finTour();
     }
-*/
+
     
     
     return 0;
