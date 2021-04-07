@@ -13,7 +13,7 @@
     }
 
     void Puissance4::ajouteSymbole(int x){
-        int y =0;
+        int y =-1;
         for ( int i = 0; i < 6; i++)
         {
            if(_grilleDeJeu.getContent(x,i)==' ')
@@ -22,40 +22,58 @@
            }
            
         }
-        
+        if (y!=-1){
+            _grilleDeJeu.setContent(x,y,_symboleCourant);
+        }
 
-        _grilleDeJeu.setContent(x,y,_symboleCourant);
+        
     }
 
     bool Puissance4::testeVictoireVerticale(){
-        for(int i=0;i<2;i++){
-            if(_grilleDeJeu.getContent(0,i)==_grilleDeJeu.getContent(1,i)
-            && _grilleDeJeu.getContent(0,i)==_grilleDeJeu.getContent(2,i)
-            && _grilleDeJeu.getContent(0,i)!=' ')
-            {return true;}
+        for(int i =0;i<7;i++){
+            for(int j=0;j<3;j++){
+                if(_grilleDeJeu.getContent(i,j)==_grilleDeJeu.getContent(i,j+1)
+                && _grilleDeJeu.getContent(i,j)==_grilleDeJeu.getContent(i,j+2)
+                && _grilleDeJeu.getContent(i,j)==_grilleDeJeu.getContent(i,j+3)
+                && _grilleDeJeu.getContent(i,j)!=' ')
+                {return true;}
+            }
         }
         return false;
     }
 
     bool Puissance4::testeVictoireHorizontale(){
-        for(int i=0;i<2;i++){
-            if(_grilleDeJeu.getContent(i,0)==_grilleDeJeu.getContent(i,1)
-            && _grilleDeJeu.getContent(i,0)==_grilleDeJeu.getContent(i,2)
-            && _grilleDeJeu.getContent(i,0)!=' ')
-            {return true;}
+      for(int j =0;j<6;j++){
+            for(int i=0;i<4;i++){
+                if(_grilleDeJeu.getContent(i,j)==_grilleDeJeu.getContent(i+1,j)
+                && _grilleDeJeu.getContent(i,j)==_grilleDeJeu.getContent(i+2,j)
+                && _grilleDeJeu.getContent(i,j)==_grilleDeJeu.getContent(i+3,j)
+                && _grilleDeJeu.getContent(i,j)!=' ')
+                {return true;}
+            }
         }
         return false;   
     }
 
     bool Puissance4::testeVictoireDiagonale(){
-        if(_grilleDeJeu.getContent(0,0)==_grilleDeJeu.getContent(1,1)
-            && _grilleDeJeu.getContent(0,0)==_grilleDeJeu.getContent(2,2)
-            && _grilleDeJeu.getContent(0,0)!=' ')
-            {return true;}
-        if(_grilleDeJeu.getContent(2,0)==_grilleDeJeu.getContent(1,1)
-            && _grilleDeJeu.getContent(2,0)==_grilleDeJeu.getContent(0,2)
-            && _grilleDeJeu.getContent(2,0)!=' ')
-            {return true;}
+      for(int j =0;j<3;j++){
+            for(int i=0;i<4;i++){
+                if(_grilleDeJeu.getContent(i,j)==_grilleDeJeu.getContent(i+1,j+1)
+                && _grilleDeJeu.getContent(i,j)==_grilleDeJeu.getContent(i+2,j+2)
+                && _grilleDeJeu.getContent(i,j)==_grilleDeJeu.getContent(i+3,j+3)
+                && _grilleDeJeu.getContent(i,j)!=' ')
+                {return true;}
+            }
+        }
+           for(int j =3;j<6;j++){
+            for(int i=0;i<4;i++){
+                if(_grilleDeJeu.getContent(i,j)==_grilleDeJeu.getContent(i+1,j-1)
+                && _grilleDeJeu.getContent(i,j)==_grilleDeJeu.getContent(i+2,j-2)
+                && _grilleDeJeu.getContent(i,j)==_grilleDeJeu.getContent(i+3,j-3)
+                && _grilleDeJeu.getContent(i,j)!=' ')
+                {return true;}
+            }
+        }
         return false;
     }
 
